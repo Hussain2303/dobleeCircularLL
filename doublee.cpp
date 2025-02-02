@@ -1,11 +1,9 @@
 #include"myLL.h"
 int main() {
-	myLL obj;
-	obj.insertSorted(99);
-	obj.insertSorted(12);
-	obj.insertSorted(9);
-	obj.insertSorted(13);
-	obj.insertSorted(1);
+	myLL<string> obj;
+	obj.insertSorted("Husasin");
+	obj.insertSorted("Ali");
+	obj.insertSorted("Ahmed");
 	obj.displayFromHead();
 
 	cout << "Delete Value from Tail is" << obj.deleteFromTail() << endl;
@@ -14,7 +12,7 @@ int main() {
 	
 
 	cout << endl << "Max Element in the Linked List is" << obj.maxElement() << endl;
-	obj.Factorial();
+	//obj.Factorial();
 	cout << "Sum of Elements Of Linked List is" << obj.sumOfLL() << endl;
 	cout << endl << "Second Max Element in the Linked List is" << obj.findSecondMax() << endl;
 

@@ -1,5 +1,6 @@
+template<class t>
 struct Node {
-	int data;
+	t data;
 	Node* next;
 	Node* prev;
 };

@@ -1,19 +1,21 @@
 #include"Node.h"
 #include<iostream>
 using namespace std;
+template <typename t>
 class LinkedList {
 protected:
-	Node* head;
+	Node<t>* head;
 	LinkedList();
-	virtual void insertAtHead(int) = 0;
+	virtual void insertAtHead(t) = 0;
 	virtual void displayFromHead() = 0;
-	virtual void insertAtTail(int) = 0;
+	virtual void insertAtTail(t) = 0;
 	virtual void displayFromTail() = 0;
-	virtual void insertSorted(int) = 0;
-	virtual int deleteFromHead() = 0;
-	virtual int deleteFromTail() = 0;
+	virtual void insertSorted(t) = 0;
+	virtual t deleteFromHead() = 0;
+	virtual t deleteFromTail() = 0;
 };
-LinkedList::LinkedList() {
+template <typename t>
+LinkedList<t>::LinkedList() {
 	head = nullptr;
 }
 
