@@ -15,7 +15,78 @@ public:
     T deleteFromTail();
     void deleteEvenNodes();
     T findSecondMax();
+    void displayRecursive();
+    //void displayFromTailRecursive();
+    void deleteduplicate();
+private:
+    void displayRecursiveHelper(Node<T>* node, Node<T>* head);
+    //void displayFromTailRecursiveHelper(Node<T>* node, Node<T>* tail);
 };
+template<typename t>
+void myLL<t>::displayRecursive() {
+    if (this->head == nullptr) {
+        std::cout << "List is empty!" << std::endl;
+        return;
+    }
+    displayRecursiveHelper(this->head, this->head); 
+    cout << endl;
+}
+//template<typename t>
+//void myLL<t>::displayFromTailRecursive() {
+//    if (this->tail == nullptr) {
+//        std::cout << "List is empty!" << std::endl;
+//        return;
+//    }
+//    displayFromTailRecursiveHelper(this->tail, this->tail);
+//    cout << endl;
+//}
+template<typename T>
+void myLL<T>::displayRecursiveHelper(Node<T>* node, Node<T>* head) {
+    if (node == nullptr) return; 
+
+    cout << node->data << " ";
+    if (node->next != head) {
+        displayRecursiveHelper(node->next, head); 
+    }
+}
+template <typename t> 
+void myLL<t>::deleteduplicate() {
+    		if (this->head==nullptr) {
+    			return;
+    		}
+    		else {
+    			Node <t>* temp1 = this->head;
+    			while (true) {
+    				Node <t>* temp2 = temp1->next;
+    				while (temp2 != this->head) {
+    					if (temp1->data == temp2->data) {
+    						Node <t>* todel = temp2;
+    						temp2->prev->next = temp2->next;
+    						temp2->next->prev = temp2->prev;
+    						temp2 = temp2->next;
+    						delete todel;
+    					}
+    					else {
+    						temp2 = temp2->next;
+    					}
+    				}
+    				temp1 = temp1->next;
+    				if (temp1 == this->head) {
+    					break;
+    				}
+    			}
+    		}
+    	}
+//template<typename T>
+//void myLL<T>::displayFromTailRecursiveHelper(Node<T>* node, Node<T>* tail) {
+//    if (node == nullptr) return;
+//
+//    cout << node->data << " ";
+//    if (node->prev != tail) {
+//        displayFromTailRecursiveHelper(node->prev, tail);
+//    }
+//}
+
 
 template <typename T>
 T myLL<T>::findSecondMax() {
